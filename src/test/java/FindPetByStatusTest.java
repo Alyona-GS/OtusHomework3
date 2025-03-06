@@ -10,7 +10,7 @@ public class FindPetByStatusTest {
      */
     @Test
     public void findPetByStatus_OkTest() {
-         int numberOfRecords = (int) RestAssured.given().baseUri("https://petstore.swagger.io/v2")
+         int numberOfRecords = RestAssured.given().baseUri("https://petstore.swagger.io/v2")
                  .param("status", "pending")
                  .when()
                  .get("/pet/findByStatus")
