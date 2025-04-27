@@ -1,0 +1,18 @@
+{
+  "id": "petId",
+  "category": {
+    "id": 0,
+    "name": "string"
+  },
+  "name": "animal",
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "pending": "status"
+}
