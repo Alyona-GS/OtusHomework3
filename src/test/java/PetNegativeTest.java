@@ -2,8 +2,8 @@ import com.google.inject.Inject;
 import extensions.APIExtensions;
 import io.restassured.response.Response;
 import models.Pet;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 @ExtendWith(APIExtensions.class)
@@ -18,8 +18,8 @@ public class PetNegativeTest {
     public void findPetByInvalidStatusTest() {
         Response response = pet.getByStatus("d");
         int numberOfRecords = response.jsonPath().getList("id").size();
-        Assert.assertEquals(0, numberOfRecords);
-        Assert.assertEquals(400, response.statusCode());
+        Assertions.assertEquals(0, numberOfRecords);
+        Assertions.assertEquals(400, response.statusCode());
     }
 
     /**
@@ -31,7 +31,7 @@ public class PetNegativeTest {
     public void findPetByIdTest() {
         pet.delete(123);
         Response response = pet.getById(123);
-        Assert.assertEquals(404, response.getStatusCode());
-        Assert.assertEquals("Pet not found", response.jsonPath().getString("message"));
+        Assertions.assertEquals(404, response.getStatusCode());
+        Assertions.assertEquals("Pet not found", response.jsonPath().getString("message"));
     }
 }
